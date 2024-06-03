@@ -10,7 +10,7 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showNotification, setShowNotification] = useState(false); // State untuk menampilkan notifikasi
 
-  const responseRef = useRef(null);
+  const responseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Set timeout untuk menampilkan notifikasi setelah 5 detik
