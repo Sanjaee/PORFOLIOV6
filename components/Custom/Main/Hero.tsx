@@ -34,12 +34,12 @@ export default function Hero(): ReactElement {
                   Ahmad Afriza
                 </h1>
                 <h2 className="text-3xl font-medium opacity-80 sm:text-3xl md:text-5xl xl:text-7xl">
-                  I build things for the web and mobile.
+                  I build things for Frontend and Backend.
                 </h2>
                 <a
                   href=""
                   target="_blank"
-                  className="flex items-center  border w-40 hover:text-red-500 px-2 py-2 "
+                  className="flex items-center  border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2 "
                 >
                   <p> Download CV</p>
                   <BiSolidDownload size={30} className="download-icon" />

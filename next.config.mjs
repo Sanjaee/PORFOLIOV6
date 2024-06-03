@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "portfolio-v3-five-nu.vercel.app",
+        hostname: "media.licdn.com",
         port: "",
         pathname: "/**",
       },

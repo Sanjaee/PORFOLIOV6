@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Dicoding",
+    "description": "Learn Backend development",
+    "image": "/serti/1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Harisenin.com",
+    "description": "Learn Golang",
+    "image": "/serti/2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Dicoding",
+    "description": "Learn React development",
+    "image": "/serti/3.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Sertifikasiku",
+    "description": "Learn Data Analytics",
+    "image": "/serti/4.jpg"
+  },
+
+  {
+    "id": 5,
+    "title": "Microsoft",
+    "description": "Learn Microsoft Artificial Intelligence",
+    "image": "/serti/6.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Dicoding",
+    "description": "Learn Python development",
+    "image": "/serti/7.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Harisenin.com",
+    "description": "Learn Javascript development",
+    "image": "/serti/8.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Dicoding",
+    "description": "Learn Frontend development",
+    "image": "/serti/9.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Edspert.id",
+    "description": "Learn React development",
+    "image": "/serti/10.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Udemy",
+    "description": "Learn  Message Broker Kafka development",
+    "image": "/serti/11.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Udemy",
+    "description": "Learn  Message Broker RabbitMQ development",
+    "image": "/serti/12.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Organisai Telkom University",
+    "description": "Learn Laravel development",
+    "image": "/serti/13.jpg"
+  },
+
+  {
+    "id": 13,
+    "title": "Dicoding",
+    "description": "Learn Web development",
+    "image": "/serti/14.jpg"
+  },
+
+  {
+    "id": 14,
+    "title": "Sololern",
+    "description": "Learn Javascript development",
+    "image": "/serti/15.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Udemy",
+    "description": "Learn Javascript Intermediate development",
+    "image": "/serti/16.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Dicoding",
+    "description": "Learn Javascript development",
+    "image": "/serti/17.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Dicoding",
+    "description": "Learn  Machine learning development",
+    "image": "/serti/18.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Dicoding",
+    "description": "Learn Visualisasi Data development",
+    "image": "/serti/19.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Dicoding",
+    "description": "Learn Enginer development",
+    "image": "/serti/20.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Sololern",
+    "description": "Learn CSS development",
+    "image": "/serti/21.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Dicoding",
+    "description": "Learn AWS development",
+    "image": "/serti/22.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Sololern",
+    "description": "Learn PHP development",
+    "image": "/serti/23.jpg"
+  }
+]
