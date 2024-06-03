@@ -37,7 +37,7 @@ export default function Hero(): ReactElement {
                   I build things for Frontend and Backend.
                 </h2>
                 <a
-                  href=""
+                  href="https://drive.google.com/file/d/1VCI8ORsd_G44vU2qRvEUkQy84lJIxrt3/view?usp=drivesdk"
                   target="_blank"
                   className="flex items-center  border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2 "
                 >
