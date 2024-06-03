@@ -139,7 +139,7 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
       </div>
       {showNotification && ( // Menampilkan notifikasi jika showNotification true
         <div className="fixed bottom-20 right-7 z-50 bg-gray-800 text-white p-3 rounded-md shadow-lg">
-          Let's try AI
+          Let&rsquo;s try AI
         </div>
       )}
       <div className={`fixed bottom-7 right-7 z-50`}>
