@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import Image from "next/image";
+import Image from "../../ui/Image";
 import { useEffect, useRef } from "react";
 import { Project, ProjectModal } from "./types";
 

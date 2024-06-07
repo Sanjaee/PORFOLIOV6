@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import Image from "next/image";
+import Image from "../../ui/Image";
 
 export function CertiDrawer() {
   return (

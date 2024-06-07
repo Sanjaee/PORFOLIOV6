@@ -84,7 +84,7 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
   return (
     <>
       <div
-        className={`fixed bottom-28 right-10 ${
+        className={`fixed bottom-28  right-10 ${
           isChatOpen ? "z-50" : "-z-50"
         } flex flex-col items-end`}
       >
@@ -138,11 +138,11 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
         </div>
       </div>
       {showNotification && ( // Menampilkan notifikasi jika showNotification true
-        <div className="fixed bottom-20 right-7 z-50 bg-gray-800 text-white p-3 rounded-md shadow-lg">
+        <div className="fixed bottom-20  right-7 z-50 bg-gray-800 text-white p-3 rounded-md shadow-lg">
           Let&rsquo;s try AI
         </div>
       )}
-      <div className={`fixed bottom-7 right-7 z-50`}>
+      <div className={`fixed bottom-7 hover:scale-110 right-7 z-50`}>
         <button
           onClick={toggleChat}
           className="bg-red-500 text-white p-3 rounded-full shadow-lg focus:outline-none"

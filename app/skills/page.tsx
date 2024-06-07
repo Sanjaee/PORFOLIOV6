@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image from "./Image";
 import skillsData from "../../components/skillsData.json"; // Adjust the path as needed
 import MainLayout from "@/components/Custom/MainLayout";
 
 const Skills = () => {
   return (
     <MainLayout>
-      <div className="px-8 sm:px-28 mt-16 w-full pb-10 ">
+      <div className="px-8 sm:px-5 mt-16 w-full pb-10 ">
         <h1 className="text-3xl font-extrabold  text-gray-900 dark:text-gray-100 sm:text-4xl  md:text-5xl ">
           Skills
         </h1>
@@ -16,9 +16,9 @@ const Skills = () => {
               className="w-full  hover:scale-105 rounded-xl shadow-md  dark:bg-neutral-800"
             >
               <Image
-                width={400}
-                height={400}
-                className="rounded-t-xl"
+                width={1000}
+                height={1000}
+                className="rounded-t-xl object-cover "
                 alt={skill.title}
                 src={skill.image}
               />

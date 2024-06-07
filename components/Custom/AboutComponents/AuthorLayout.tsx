@@ -1,4 +1,4 @@
-import Image from "../AboutComponents/Image";
+import Image from "../../ui/Image";
 import { Teckstack } from "./AccrodionTeckstack";
 import { CertiDrawer } from "./CertiDrawer";
 

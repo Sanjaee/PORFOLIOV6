@@ -1,6 +1,6 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
+import Image from "../../ui/Image";
 
 export function Works() {
   const [emblaRef] = useEmblaCarousel();
