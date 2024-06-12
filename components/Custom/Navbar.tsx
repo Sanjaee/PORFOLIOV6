@@ -5,6 +5,7 @@ import NextTopLoader from "nextjs-toploader";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { HiCode } from "react-icons/hi";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,13 +25,9 @@ const Navbar = () => {
   return (
     <nav className="flex shadow-md items-center justify-between px-6 sm:px-8 h-16 w-full z-50">
       <NextTopLoader color="#EF4444" showSpinner={false} />
-      <Image
-        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] light:drop-shadow-[0_0_0.3rem_#00000070] dark:invert"
-        width={100}
-        height={100}
-        src="/next.svg"
-        alt="Logo"
-      />
+      <Link href="/">
+        <HiCode className="w-10 h-10" />
+      </Link>
       {/* navbar */}
       <div className="sm:flex sm:items-center hidden">
         <ul className="flex items-center mr-5 gap-3 font-bold">
