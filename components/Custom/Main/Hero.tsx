@@ -55,7 +55,7 @@ export default function Hero(): ReactElement {
                   role="presentation"
                   className="flex cursor-pointer flex-col items-center justify-center"
                   onClick={() => {
-                    const intro = document.querySelector("#about");
+                    const intro = document.querySelector("#intro");
 
                     intro?.scrollIntoView({ behavior: "smooth" });
                   }}

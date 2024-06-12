@@ -121,7 +121,7 @@ export default function ProjectPreview({ modal, projects }: ProjectModalProps) {
         animate={active ? "enter" : "closed"}
       ></motion.div>
       <motion.div
-        className="font-base pointer-events-none absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-transparent font-light text-white"
+        className="font-base pointer-events-none absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-transparent  font-bold text-black"
         ref={cursorLabel}
         variants={scaleAnimation}
         initial="initial"
