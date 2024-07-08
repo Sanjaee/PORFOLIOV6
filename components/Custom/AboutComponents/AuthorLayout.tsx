@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "../../ui/Image";
 import { Teckstack } from "./AccrodionTeckstack";
 import { CertiDrawer } from "./CertiDrawer";
-
+import toast, { Toaster } from "react-hot-toast";
 import MainLayout from "../MainLayout";
 
 export default function AuthorLayout({ children }: any) {
@@ -22,13 +22,16 @@ export default function AuthorLayout({ children }: any) {
     if (password === staticPassword) {
       setOpen(false);
       setError("");
+      toast.success("Password correct!");
     } else {
+      toast.error("Incorrect password. Please try again.");
       setError("Incorrect password. Please try again.");
     }
   };
 
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       {open ? (
         <>
           <div className="fixed inset-0 flex flex-col items-center justify-center bg-white dark:bg-black  z-40">
