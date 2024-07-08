@@ -5,7 +5,7 @@ import MainLayout from "@/components/Custom/MainLayout";
 const Skills = () => {
   return (
     <MainLayout>
-      <div className="px-8 sm:px-5 mt-16 w-full pb-10 ">
+      <div className="px-8 sm:px-5 mt-28 w-full pb-10 ">
         <h1 className="text-3xl font-extrabold  text-gray-900 dark:text-gray-100 sm:text-4xl  md:text-5xl ">
           Skills
         </h1>

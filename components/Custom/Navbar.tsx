@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <nav className="flex shadow-md items-center justify-between px-6 sm:px-8 h-16 w-full z-50">
+    <nav className="flex shadow-md  bg-black text-white  fixed top-0 items-center justify-between px-6 sm:px-8 h-16 w-full z-50">
       <NextTopLoader color="#EF4444" showSpinner={false} />
       <Link href="/">
         <HiCode className="w-10 h-10" />

@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center p-4 bg-gray-800 text-white">
+    <footer className="flex w-full relative flex-col items-center p-4 bg-gray-800 text-white">
       <div>
         <p className="text-sm mb-6">&copy; 2024 Ezadev. All rights reserved.</p>
       </div>

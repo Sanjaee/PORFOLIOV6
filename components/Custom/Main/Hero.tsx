@@ -1,16 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactElement, useContext, useEffect, useRef } from "react";
+import { ReactElement, useContext, useEffect, useRef, useState } from "react";
 import { HiOutlineArrowNarrowDown } from "react-icons/hi";
 import { ScrollContext } from "../../Custom/ScrollProvider";
 import { renderCanvas } from "../../Custom/renderCanvas";
 import { BiSolidDownload } from "react-icons/bi";
 import MainLayout from "../MontionLayout";
+import PasswordModal from "./PasswordModal"; // Import the PasswordModal component
 
 export default function Hero(): ReactElement {
   const ref = useRef<HTMLHeadingElement>(null);
   const { scrollY } = useContext(ScrollContext);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   let progress = 0;
   const { current: elContainer } = ref;
@@ -23,9 +25,23 @@ export default function Hero(): ReactElement {
     renderCanvas();
   }, []);
 
+  const handleDownloadClick = () => {
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
+  const handleModalSubmit = () => {
+    setModalOpen(false);
+    window.location.href =
+      "https://drive.google.com/file/d/1VCI8ORsd_G44vU2qRvEUkQy84lJIxrt3/view?usp=drivesdk";
+  };
+
   return (
     <div id="home">
-      <div className="relative mt-14 z-10 flex h-[calc(100vh-81px)] items-center md:h-[calc(100vh-116px)]">
+      <div className="relative mt-28 z-10 flex h-[calc(100vh-81px)] items-center md:h-[calc(100vh-116px)]">
         <div className="mx-auto w-screen max-w-3xl px-4 sm:px-9 xl:max-w-5xl xl:px-0">
           <MainLayout>
             <div className="-mt-36">
@@ -36,14 +52,13 @@ export default function Hero(): ReactElement {
                 <h2 className="text-3xl font-medium opacity-80 sm:text-3xl md:text-5xl xl:text-7xl">
                   I build things for Frontend and Backend.
                 </h2>
-                <a
-                  href="https://drive.google.com/file/d/1VCI8ORsd_G44vU2qRvEUkQy84lJIxrt3/view?usp=drivesdk"
-                  target="_blank"
-                  className="flex items-center  border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2 "
+                <button
+                  onClick={handleDownloadClick}
+                  className="flex items-center border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2"
                 >
                   <p> Download CV</p>
                   <BiSolidDownload size={30} className="download-icon" />
-                </a>
+                </button>
               </div>
               <motion.div
                 animate={{
@@ -56,7 +71,6 @@ export default function Hero(): ReactElement {
                   className="flex cursor-pointer flex-col items-center justify-center"
                   onClick={() => {
                     const intro = document.querySelector("#intro");
-
                     intro?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
@@ -71,6 +85,12 @@ export default function Hero(): ReactElement {
         className="bg-skin-base pointer-events-none absolute inset-0"
         id="canvas"
       ></canvas>
+      {isModalOpen && (
+        <PasswordModal
+          onClose={handleModalClose}
+          onSubmit={handleModalSubmit}
+        />
+      )}
     </div>
   );
 }
