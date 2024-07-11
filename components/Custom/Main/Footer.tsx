@@ -10,19 +10,33 @@ import {
 import PasswordModal from "./PasswordModal"; // Adjust the import path if necessary
 
 const Footer = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isLinkedInModalOpen, setLinkedInModalOpen] = useState(false);
+  const [isGithubModalOpen, setGithubModalOpen] = useState(false);
 
   const handleLinkedInClick = () => {
-    setModalOpen(true);
+    setLinkedInModalOpen(true);
   };
 
-  const handleModalClose = () => {
-    setModalOpen(false);
+  const handleGithubClick = () => {
+    setGithubModalOpen(true);
   };
 
-  const handleModalSubmit = () => {
-    setModalOpen(false);
+  const handleLinkedInModalClose = () => {
+    setLinkedInModalOpen(false);
+  };
+
+  const handleGithubModalClose = () => {
+    setGithubModalOpen(false);
+  };
+
+  const handleLinkedInModalSubmit = () => {
+    setLinkedInModalOpen(false);
     window.location.href = "https://www.linkedin.com/in/ahmad-afriza-ab9173276";
+  };
+
+  const handleGithubModalSubmit = () => {
+    setGithubModalOpen(false);
+    window.location.href = "https://github.com/Sanjaee";
   };
 
   return (
@@ -37,14 +51,12 @@ const Footer = () => {
         >
           <FaLinkedin size={30} />
         </button>
-        <a
-          href="https://github.com/Sanjaee"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={handleGithubClick}
           className="mx-4 hover:text-gray-400"
         >
           <FaGithub size={30} />
-        </a>
+        </button>
         <a
           href="https://www.instagram.com/ahmdfrizza"
           target="_blank"
@@ -70,10 +82,16 @@ const Footer = () => {
           <FaYoutube size={30} />
         </a>
       </div>
-      {isModalOpen && (
+      {isLinkedInModalOpen && (
         <PasswordModal
-          onClose={handleModalClose}
-          onSubmit={handleModalSubmit}
+          onClose={handleLinkedInModalClose}
+          onSubmit={handleLinkedInModalSubmit}
+        />
+      )}
+      {isGithubModalOpen && (
+        <PasswordModal
+          onClose={handleGithubModalClose}
+          onSubmit={handleGithubModalSubmit}
         />
       )}
     </footer>
