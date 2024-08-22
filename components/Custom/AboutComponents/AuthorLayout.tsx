@@ -17,7 +17,7 @@ export default function AuthorLayout({ children }: any) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const staticPassword = "mySecretPassword"; // Set your static password here
+    const staticPassword = "Ev9SH4"; // Set your static password here
 
     if (password === staticPassword) {
       setOpen(false);
