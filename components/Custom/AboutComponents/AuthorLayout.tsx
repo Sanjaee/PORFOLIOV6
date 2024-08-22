@@ -5,11 +5,33 @@ import { Teckstack } from "./AccrodionTeckstack";
 import { CertiDrawer } from "./CertiDrawer";
 import toast, { Toaster } from "react-hot-toast";
 import MainLayout from "../MainLayout";
+import { Testi } from "./Testi";
+import { AccTesti } from "./AccTesti";
+import Link from "next/link";
 
 export default function AuthorLayout({ children }: any) {
   const [open, setOpen] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const savedPassword = localStorage.getItem("savedPassword");
+    const savedTime = localStorage.getItem("savedTime");
+
+    if (savedPassword && savedTime) {
+      const currentTime = new Date().getTime();
+      const timeDifference = currentTime - parseInt(savedTime, 10);
+
+      // Check if the saved password is within 24 hours
+      if (timeDifference <= 24 * 60 * 60 * 1000 && savedPassword === "Ev9SH4") {
+        setOpen(false);
+        toast.success("Welcome back!");
+      } else {
+        localStorage.removeItem("savedPassword");
+        localStorage.removeItem("savedTime");
+      }
+    }
+  }, []);
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -17,9 +39,14 @@ export default function AuthorLayout({ children }: any) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const staticPassword = "Ev9SH4"; // Set your static password here
 
     if (password === staticPassword) {
+      const currentTime = new Date().getTime();
+      localStorage.setItem("savedPassword", password);
+      localStorage.setItem("savedTime", currentTime.toString());
+
       setOpen(false);
       setError("");
       toast.success("Password correct!");
@@ -151,6 +178,59 @@ export default function AuthorLayout({ children }: any) {
               </div>
 
               <Teckstack />
+
+              <div className="mt-8 flex  items-start">
+                <Image
+                  width={50}
+                  height={50}
+                  src="/freelance.png"
+                  alt="harisenin"
+                />
+                <div className="ml-4 flex flex-col">
+                  <p className="text-lg font-bold">Full-stack Web Developer </p>
+                  <p className="text-sm">Nusantara Pedia · Freelance</p>
+                  <p className="text-sm">Jul 2024 - Aug 2024 · 2 bln</p>
+                  <p className="text-sm">Jarak jauh</p>
+                </div>
+              </div>
+              <div className="ml-16 mt-6 flex flex-col">
+                <p className="text-sm">
+                  Contributed as a Full-stack Web Developer for Nusantara Pedia
+                  in a freelance role. Over 2 months, delivered remote projects
+                  by converting existing Figma designs into responsive web
+                  applications, using React.js for the frontend and Laravel with
+                  Filament for the backend and admin dashboard. Played a key
+                  role in coding and implementing solutions that improved user
+                  experience and system performance.
+                </p>
+              </div>
+              <div className="ml-16 mt-6 flex flex-col">
+                <p className="text-sm">Project Result :</p>
+                <Link
+                  className="underline text-blue-500 hover:text-blue-700"
+                  href="https://nusantarapedia.org"
+                >
+                  https://nusantarapedia.org
+                </Link>
+                <Link
+                  className="underline text-blue-500 hover:text-blue-700 mt-2"
+                  href="https://demo.nusantarapedia.org"
+                >
+                  https://demo.nusantarapedia.org
+                </Link>
+                <p className="text-sm mt-5 ">Design Figma :</p>
+                <Link
+                  className="underline text-blue-500 hover:text-blue-700"
+                  href="https://www.figma.com/design/b9Zt3q1axJFzJTpWLr9B3a/Pariwisata-Universitas-Pancasila"
+                >
+                  https://www.figma.com/design/b9Zt3q1axJFzJTpWLr9B3a/Pariwisata-Universitas-Pancasila
+                </Link>
+              </div>
+              <div className=" my-20 flex w-full justify-center items-center">
+                <Testi />
+              </div>
+
+              <AccTesti />
             </div>
           </div>
         </MainLayout>

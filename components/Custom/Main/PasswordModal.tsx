@@ -1,10 +1,29 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const PasswordModal = ({ onClose, onSubmit }: any) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const savedPassword = localStorage.getItem("savedPassword");
+    const savedTime = localStorage.getItem("savedTime");
+
+    if (savedPassword && savedTime) {
+      const currentTime = new Date().getTime();
+      const timeDifference = currentTime - parseInt(savedTime, 10);
+
+      // Check if the saved password is within 24 hours (1 day)
+      if (timeDifference <= 24 * 60 * 60 * 1000 && savedPassword === "Ev9SH4") {
+        toast.success("Welcome back! Redirecting...");
+        onSubmit();
+      } else {
+        localStorage.removeItem("savedPassword");
+        localStorage.removeItem("savedTime");
+      }
+    }
+  }, [onSubmit]);
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -15,6 +34,10 @@ const PasswordModal = ({ onClose, onSubmit }: any) => {
     const staticPassword = "Ev9SH4"; // Set your static password here
 
     if (password === staticPassword) {
+      const currentTime = new Date().getTime();
+      localStorage.setItem("savedPassword", password);
+      localStorage.setItem("savedTime", currentTime.toString());
+
       toast.success("Password correct! Redirecting...");
       onSubmit();
     } else {
@@ -22,6 +45,7 @@ const PasswordModal = ({ onClose, onSubmit }: any) => {
       toast.error("Incorrect password.");
     }
   };
+
 
   return (
     <>
