@@ -36,7 +36,7 @@ export default function Hero(): ReactElement {
   const handleModalSubmit = () => {
     setModalOpen(false);
     window.location.href =
-      "https://drive.google.com/file/d/1VCI8ORsd_G44vU2qRvEUkQy84lJIxrt3/view?usp=drivesdk";
+      "https://drive.google.com/file/d/1MrwSbkAIzHQQrSw00i81L9ihVUZVOJyo/view?usp=drive_link";
   };
 
   return (
