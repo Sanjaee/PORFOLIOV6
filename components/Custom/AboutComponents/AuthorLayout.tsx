@@ -220,10 +220,10 @@ export default function AuthorLayout({ children }: any) {
                 </Link>
                 <p className="text-sm mt-5 ">Design Figma :</p>
                 <Link
-                  className="underline text-blue-500 hover:text-blue-700"
+                  className=" underline text-blue-500 hover:text-blue-700"
                   href="https://www.figma.com/design/b9Zt3q1axJFzJTpWLr9B3a/Pariwisata-Universitas-Pancasila"
                 >
-                  https://www.figma.com/design/b9Zt3q1axJFzJTpWLr9B3a/Pariwisata-Universitas-Pancasila
+                  Click to Link Figma 
                 </Link>
               </div>
               <div className=" my-20 flex w-full justify-center items-center">
