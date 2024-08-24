@@ -207,12 +207,14 @@ export default function AuthorLayout({ children }: any) {
               <div className="ml-16 mt-6 flex flex-col">
                 <p className="text-sm">Project Result :</p>
                 <Link
+                  target="_blank"
                   className="underline text-blue-500 hover:text-blue-700"
                   href="https://nusantarapedia.org"
                 >
                   https://nusantarapedia.org
                 </Link>
                 <Link
+                  target="_blank"
                   className="underline text-blue-500 hover:text-blue-700 mt-2"
                   href="https://demo.nusantarapedia.org"
                 >
@@ -220,10 +222,11 @@ export default function AuthorLayout({ children }: any) {
                 </Link>
                 <p className="text-sm mt-5 ">Design Figma :</p>
                 <Link
+                  target="_blank"
                   className=" underline text-blue-500 hover:text-blue-700"
                   href="https://www.figma.com/design/b9Zt3q1axJFzJTpWLr9B3a/Pariwisata-Universitas-Pancasila"
                 >
-                  Click to Link Figma 
+                  Click to Link Figma
                 </Link>
               </div>
               <div className=" my-20 flex w-full justify-center items-center">

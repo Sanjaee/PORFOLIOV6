@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { AiOutlineMessage, AiOutlineClose } from "react-icons/ai";
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
 
 const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -8,26 +10,25 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
   const [response, setResponse] = useState(initialResponse);
   const [requestContent, setRequestContent] = useState(initialRequestContent);
   const [isLoading, setIsLoading] = useState(false);
-  const [showNotification, setShowNotification] = useState(false); // State untuk menampilkan notifikasi
 
   const responseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Set timeout untuk menampilkan notifikasi setelah 5 detik
-    const showTimer = setTimeout(() => {
-      setShowNotification(true);
-    }, 5000);
+    const timer = setTimeout(() => {
+      const driverObj = driver();
+      driverObj.highlight({
+        element: "#ai-response",
+        popover: {
+          showButtons: ["close"],
+          side: "bottom",
+          title: "AI Generated",
+          description: "Lets talk about it",
+        },
+      });
+    }, 5000); // 5 detik
 
-    // Set timeout untuk menyembunyikan notifikasi setelah 10 detik
-    const hideTimer = setTimeout(() => {
-      setShowNotification(false);
-    }, 10000);
-
-    // Membersihkan timeout saat komponen dilepas
-    return () => {
-      clearTimeout(showTimer);
-      clearTimeout(hideTimer);
-    };
+    // Cleanup untuk timer utama
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -93,8 +94,9 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
             isChatOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           } bg-white dark:bg-gray-900 shadow-lg rounded-lg p-4 w-64 h-80 mb-4 flex flex-col justify-between relative`}
           style={{
-            transition: "opacity 0.3s ease, transform 0.3s ease",
+            transition: "opacity 0.1s ease, transform 0.3s ease",
             visibility: isChatOpen ? "visible" : "hidden",
+            
           }}
         >
           <div>
@@ -110,6 +112,7 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
             </div>
             <div
               ref={responseRef}
+              
               className="h-full overflow-y-auto flex-grow max-h-64"
             >
               <div className="text-right mb-2 text-gray-500">
@@ -137,13 +140,9 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
           </div>
         </div>
       </div>
-      {showNotification && ( // Menampilkan notifikasi jika showNotification true
-        <div className="fixed bottom-20  right-7 z-50 bg-gray-800 text-white p-3 rounded-md shadow-lg">
-          Let&rsquo;s try AI
-        </div>
-      )}
-      <div className={`fixed bottom-7 hover:scale-110 right-7 z-50`}>
+      <div  className={`fixed bottom-7 hover:scale-110 right-7 z-50`}>
         <button
+        id="ai-response"
           onClick={toggleChat}
           className="bg-red-500 text-white p-3 rounded-full shadow-lg focus:outline-none"
           aria-label="Open chat"
