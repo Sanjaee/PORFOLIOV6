@@ -25,23 +25,23 @@ const Navbar = () => {
   return (
     <nav className="flex shadow-md text-black dark:text-white dark:bg-transparent   fixed top-0 items-center justify-between px-6 sm:px-8 h-16 w-full z-50">
       <NextTopLoader color="#EF4444" showSpinner={false} />
-      <Link href="/">
+      <Link href="/" aria-label="Home">
         <HiCode className="w-10 h-10" />
       </Link>
       {/* navbar */}
       <div className="sm:flex sm:items-center hidden">
         <ul className="flex items-center mr-5 gap-3 font-bold">
           <li className="hover:text-red-500">
-            <Link href="/">Home</Link>
+            <Link href="/" aria-label="Home">Home</Link>
           </li>
           <li className="hover:text-red-500">
-            <Link href="/about">About</Link>
+            <Link href="/about" aria-label="About">About</Link>
           </li>
           <li className="hover:text-red-500">
-            <Link href="/projects">Projects</Link>
+            <Link href="/projects" aria-label="Projects">Projects</Link>
           </li>
           <li className="hover:text-red-500">
-            <Link href="/skills">Skills</Link>
+            <Link href="/skills" aria-label="Skills">Skills</Link>
           </li>
         </ul>
         <ModeToggle />
@@ -64,22 +64,22 @@ const Navbar = () => {
         <div className="sm:hidden z-50 absolute flex justify-center items-center top-16 left-0 w-full h-[calc(100vh-4rem)] bg-white dark:bg-black shadow-md">
           <ul className="flex flex-col items-center gap-10 p-4 font-bold">
             <li className="hover:text-red-500">
-              <Link href="/" onClick={toggleMobileMenu}>
+              <Link href="/" onClick={toggleMobileMenu} aria-label="Home">
                 Home
               </Link>
             </li>
             <li className="hover:text-red-500">
-              <Link href="/about" onClick={toggleMobileMenu}>
+              <Link href="/about" onClick={toggleMobileMenu} aria-label="About">
                 About
               </Link>
             </li>
             <li className="hover:text-red-500">
-              <Link href="/projects" onClick={toggleMobileMenu}>
+              <Link href="/projects" onClick={toggleMobileMenu} aria-label="Projects">
                 Projects
               </Link>
             </li>
             <li className="hover:text-red-500">
-              <Link href="/skills" onClick={toggleMobileMenu}>
+              <Link href="/skills" onClick={toggleMobileMenu} aria-label="Skills">
                 Skills
               </Link>
             </li>

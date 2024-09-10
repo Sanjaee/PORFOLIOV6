@@ -27,7 +27,7 @@ Line.prototype = {
     this.spring = e.spring + 0.1 * Math.random() - 0.05;
     this.friction = E.friction + 0.01 * Math.random() - 0.005;
     this.nodes = [];
-    for (var t, n = 0; n < E.size; n++) {
+    for (let t, n = 0; n < E.size; n++) {
       t = new Node();
       t.x = pos.x;
       t.y = pos.y;
@@ -35,11 +35,11 @@ Line.prototype = {
     }
   },
   update: function () {
-    var e = this.spring,
+    let e = this.spring,
       t = this.nodes[0];
     t.vx += (pos.x - t.x) * e;
     t.vy += (pos.y - t.y) * e;
-    for (var n, i = 0, a = this.nodes.length; i < a; i++)
+    for (let n, i = 0, a = this.nodes.length; i < a; i++)
       (t = this.nodes[i]),
         0 < i &&
           ((n = this.nodes[i - 1]),
@@ -54,7 +54,7 @@ Line.prototype = {
         (e *= E.tension);
   },
   draw: function () {
-    var e,
+    let e,
       t,
       n = this.nodes[0].x,
       i = this.nodes[0].y;
@@ -78,7 +78,7 @@ Line.prototype = {
 function onMousemove(e) {
   function o() {
     lines = [];
-    for (var e = 0; e < E.trails; e++)
+    for (let e = 0; e < E.trails; e++)
       lines.push(new Line({ spring: 0.45 + (e / E.trails) * 0.025 }));
   }
   function c(e) {
@@ -107,7 +107,7 @@ function render() {
     ctx.globalCompositeOperation = 'lighter';
     ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',90%,50%,0.25)';
     ctx.lineWidth = 1;
-    for (var e, t = 0; t < E.trails; t++) {
+    for (let e, t = 0; t < E.trails; t++) {
       (e = lines[t]).update();
       e.draw();
     }
@@ -121,7 +121,7 @@ function resizeCanvas() {
   ctx.canvas.height = window.innerHeight;
 }
 
-var ctx,
+let ctx,
   f,
   e = 0,
   pos = {},
