@@ -100,7 +100,7 @@ export default function AuthorLayout({ children }: any) {
         </>
       ) : (
         <MainLayout>
-          <div className="pt-28">
+          <div className="pt-28 px-2">
             <div className="mb-8 flex flex-col-reverse items-center justify-between sm:flex-row sm:items-center">
               <div className="text-center sm:text-left">
                 <h1 className="text-xl font-bold md:text-3xl lg:text-4xl mt-4">
@@ -173,6 +173,9 @@ export default function AuthorLayout({ children }: any) {
                   achieve project objectives.
                 </p>
               </div>
+              <p className="text-center mt-4">
+                Click on the image below to see more clearly
+              </p>
               <div className=" my-20 flex w-full justify-center items-center">
                 <CertiDrawer />
               </div>
@@ -204,6 +207,7 @@ export default function AuthorLayout({ children }: any) {
                   experience and system performance.
                 </p>
               </div>
+
               <div className="ml-16 mt-6 flex flex-col">
                 <p className="text-sm">Project Result :</p>
                 <Link
@@ -229,6 +233,9 @@ export default function AuthorLayout({ children }: any) {
                   Click to Link Figma
                 </Link>
               </div>
+              <p className="text-center mt-4">
+                Click on the image below to see more clearly
+              </p>
               <div className=" my-20 flex w-full justify-center items-center">
                 <Testi />
               </div>

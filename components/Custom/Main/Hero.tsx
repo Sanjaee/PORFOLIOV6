@@ -44,7 +44,7 @@ export default function Hero(): ReactElement {
       <div className="relative mt-28 z-10 flex h-[calc(100vh-81px)] items-center md:h-[calc(100vh-116px)]">
         <div className="mx-auto w-screen max-w-3xl px-4 sm:px-9 xl:max-w-5xl xl:px-0">
           <MainLayout>
-            <div className="-mt-36">
+            <div >
               <div ref={ref} className="flex cursor-default flex-col space-y-2">
                 <h1 className="text-5xl font-semibold sm:text-5xl md:text-6xl xl:text-9xl">
                   Ahmad Afriza

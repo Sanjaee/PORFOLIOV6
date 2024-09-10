@@ -32,6 +32,7 @@ const Footer = () => {
   const handleLinkedInModalSubmit = () => {
     setLinkedInModalOpen(false);
     window.location.href = "https://www.linkedin.com/in/ahmad-afriza-ab9173276";
+    
   };
 
   const handleGithubModalSubmit = () => {

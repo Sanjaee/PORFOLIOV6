@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { AiOutlineMessage, AiOutlineClose } from "react-icons/ai";
-import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 
 const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
@@ -10,25 +9,26 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
   const [response, setResponse] = useState(initialResponse);
   const [requestContent, setRequestContent] = useState(initialRequestContent);
   const [isLoading, setIsLoading] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const responseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const driverObj = driver();
-      driverObj.highlight({
-        element: "#ai-response",
-        popover: {
-          showButtons: ["close"],
-          side: "bottom",
-          title: "AI Generated",
-          description: "Lets talk about it",
-        },
-      });
-    }, 5000); // 5 detik
+    // Set timeout untuk menampilkan notifikasi setelah 5 detik
+    const showTimer = setTimeout(() => {
+      setShowNotification(true);
+    }, 5000);
 
-    // Cleanup untuk timer utama
-    return () => clearTimeout(timer);
+    // Set timeout untuk menyembunyikan notifikasi setelah 10 detik
+    const hideTimer = setTimeout(() => {
+      setShowNotification(false);
+    }, 10000);
+
+    // Membersihkan timeout saat komponen dilepas
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -140,6 +140,11 @@ const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
           </div>
         </div>
       </div>
+      {showNotification && ( // Menampilkan notifikasi jika showNotification true
+        <div className="fixed bottom-20  right-7 z-50 bg-gray-800 text-white p-3 rounded-md shadow-lg">
+          Let&rsquo;s try AI
+        </div>
+      )}
       <div  className={`fixed bottom-7 hover:scale-110 right-7 z-50`}>
         <button
         id="ai-response"
