@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { AiOutlineMessage, AiOutlineClose } from "react-icons/ai";
-import "driver.js/dist/driver.css";
 
 const ChatAiButton = ({ initialResponse = "", initialRequestContent = "" }) => {
   const [isChatOpen, setIsChatOpen] = useState(false);

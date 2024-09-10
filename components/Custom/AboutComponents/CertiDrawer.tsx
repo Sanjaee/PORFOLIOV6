@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Image from "../../ui/Image";
-import "driver.js/dist/driver.css";
+
 
 export function CertiDrawer() {
   return (

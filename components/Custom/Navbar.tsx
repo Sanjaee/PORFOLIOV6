@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { ModeToggle } from "../ui/mode";
 import NextTopLoader from "nextjs-toploader";
 import Link from "next/link";
