@@ -49,7 +49,7 @@ export default function Hero(): ReactElement {
                 <h1 className="text-5xl font-semibold sm:text-5xl md:text-6xl xl:text-9xl">
                   Ahmad Afriza
                 </h1>
-                <h2 className="text-3xl font-medium opacity-80 sm:text-3xl md:text-5xl xl:text-7xl">
+                <h2 className="text-3xl font-medium opacity-80 sm:text-xl md:text-5xl xl:text-7xl">
                   I build things for Frontend and Backend.
                 </h2>
                 <button
