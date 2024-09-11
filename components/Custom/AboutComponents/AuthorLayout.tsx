@@ -153,7 +153,7 @@ export default function AuthorLayout({ children }: any) {
                 <Image
                   width={50}
                   height={50}
-                  src="https://media.licdn.com/dms/image/D560BAQH7odxdlnGYNg/company-logo_200_200/0/1706966500193/harisenin_com_logo?e=1725494400&v=beta&t=sxCzM1ibsj5o4X7RhyNRKaqUIOn4Wjwsoj1UWjKySNQ"
+                  src="/harisenin.png"
                   alt="harisenin"
                 />
                 <div className="ml-4 flex flex-col">
