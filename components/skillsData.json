@@ -133,5 +133,11 @@
     "title": "Sololern",
     "description": "Learn PHP development",
     "image": "/serti/23.jpg"
+  },
+  {
+    "id": 23,
+    "title": "IMPHNEN",
+    "description": "Contrinbutor",
+    "image": "/serti/24.jpg"
   }
 ]

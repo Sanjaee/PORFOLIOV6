@@ -11,11 +11,11 @@ const Intro = () => {
     <div
       data-aos="fade-up"
       data-aos-anchor-placement="center-bottom"
-      className="relative sm:pb-28 z-10 bg-black text-white dark:bg-white  dark:text-black"
+      className="relative  z-10 bg-black text-white dark:bg-white  dark:text-black"
     >
       <div
         id="intro"
-        className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-10 py-24 text-4xl font-semibold tracking-tight md:py-28 md:text-6xl lg:px-20 lg:py-3 lg:text-7xl"
+        className="mx-auto flex py-10 max-w-5xl flex-col items-center justify-center px-10 text-4xl font-semibold tracking-tight  md:text-6xl lg:px-20 lg:py-20 lg:text-7xl"
       >
         <div>
           <div className="introText hover:text-gray-400">I love coding.</div>

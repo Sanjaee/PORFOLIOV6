@@ -8,6 +8,8 @@ import MainLayout from "../MainLayout";
 import { Testi } from "./Testi";
 import { AccTesti } from "./AccTesti";
 import Link from "next/link";
+import Embed from "../Main/Tiktok";
+
 
 export default function AuthorLayout({ children }: any) {
   const [open, setOpen] = useState(true);
@@ -242,6 +244,8 @@ export default function AuthorLayout({ children }: any) {
 
               <AccTesti />
             </div>
+
+            <Embed />
           </div>
         </MainLayout>
       )}

@@ -20,7 +20,7 @@ export default function SkillList() {
         </SectionSubHeading>
       </div>
 
-      <div className="flex flex-col space-y-1 overflow-x-hidden">
+      <div className="flex flex-col space-y-1 overflow-x-hidden ">
         {Array.from({ length: 2 }, (_, index) => {
           const slider = [...stacksInArray].sort(() => Math.random() - 0.5);
           return (
