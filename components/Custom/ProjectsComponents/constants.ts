@@ -9,6 +9,13 @@ export const projects: Project[] = [
     role: "Fullstack Developer",
   },
   {
+    title: "Authentication OTP Email",
+    src: "/9.png",
+    color: "#fae8ff",
+    url: "https://frontend-otp-tau.vercel.app",
+    role: "Fullstack Developer",
+  },
+  {
     title: "Cod Yuk",
     src: "4.png",
     color: "#ddd6fe",
