@@ -10,7 +10,6 @@ import { AccTesti } from "./AccTesti";
 import Link from "next/link";
 import Embed from "../Main/Tiktok";
 
-
 export default function AuthorLayout({ children }: any) {
   const [open, setOpen] = useState(true);
   const [password, setPassword] = useState("");
@@ -125,22 +124,16 @@ export default function AuthorLayout({ children }: any) {
 
             <div className="prose max-w-none pb-8 text-justify text-sm dark:prose-dark md:text-lg xl:col-span-2">
               <p className="mt-4 text-sm">
-                I am currently an aspiring software developer with expertise in
-                front-end and full-stack development. I have hands-on experience
-                with Next.js, Express, Prisma ORM, PostgreSQL, MongoDB, and
-                React.js. Additionally, I am currently learning backend
-                development with Flask Python and Go, as well as the Laravel
-                framework. Moreover, I&apos;m in the process of learning message
-                broker systems, including RabbitMQ.
+                My name is Ahmad Afriza, a Software Developer specializing in
+                Frontend Development. I have 3 months of experience as a
+                freelance web developer, along with 1 year of building personal
+                projects. My tech stack includes React.js, Node.js (with
+                Express.js), and Next.js. I am passionate about creating
+                intuitive and user-friendly interfaces while ensuring smooth
+                integration with backend systems. I excel at slicing UI from
+                Figma into functional web components.
               </p>
 
-              <p className="mt-4 text-sm">
-                While I have not yet held a professional position, I am
-                passionate about creating beautiful and reusable user interfaces
-                using ReactJS and building robust full-stack applications. My
-                technical skill set allows me to develop scalable and
-                maintainable code for modern web applications.
-              </p>
               <h1 className="mt-4 text-2xl font-bold">Education</h1>
               <div className="mt-4 flex flex-col">
                 <h2 className="text-lg font-bold">SMAS Harapan Jaya</h2>
@@ -163,7 +156,7 @@ export default function AuthorLayout({ children }: any) {
                   <p className="text-sm">Jarak jauh</p>
                 </div>
               </div>
-              <div className="ml-16 mt-6 flex flex-col">
+              <div className="xl:ml-16 mt-6  flex flex-col">
                 <p className="text-sm">
                   Fullstack Web Developer at hariSenin.com, contributing
                   expertise over 3 weeks. Spearheading the development of
@@ -198,7 +191,7 @@ export default function AuthorLayout({ children }: any) {
                   <p className="text-sm">Jarak jauh</p>
                 </div>
               </div>
-              <div className="ml-16 mt-6 flex flex-col">
+              <div className="xl:ml-16 mt-6 flex flex-col">
                 <p className="text-sm">
                   Contributed as a Full-stack Web Developer for Nusantara Pedia
                   in a freelance role. Over 2 months, delivered remote projects
@@ -210,7 +203,7 @@ export default function AuthorLayout({ children }: any) {
                 </p>
               </div>
 
-              <div className="ml-16 mt-6 flex flex-col">
+              <div className="xl:ml-16 mt-6 flex flex-col">
                 <p className="text-sm">Project Result :</p>
                 <Link
                   target="_blank"

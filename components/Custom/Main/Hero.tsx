@@ -45,18 +45,19 @@ export default function Hero(): ReactElement {
         <div className="mx-auto w-screen max-w-3xl px-4 sm:px-9 xl:max-w-5xl xl:px-0">
           <MainLayout>
             <div >
-              <div ref={ref} className="flex cursor-default flex-col space-y-2">
+              <div ref={ref} className="flex cursor-default flex-col space-y-5">
                 <h1 className="text-5xl font-semibold sm:text-5xl md:text-6xl xl:text-9xl">
                   Ahmad Afriza
                 </h1>
                 <h2 className="text-2xl font-medium opacity-80 sm:text-3xl md:text-5xl xl:text-7xl">
                   I build things for Frontend and Backend.
                 </h2>
+
                 <button
                   onClick={handleDownloadClick}
-                  className="flex items-center border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2"
+                  className="flex mt-10 items-center border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2 "
                 >
-                  <p> Download CV</p>
+                  <p className="ml-3"> Download CV</p>
                   <BiSolidDownload size={30} className="download-icon" />
                 </button>
               </div>
