@@ -358,7 +358,7 @@ export default function AuthorLayout({ children }: any) {
               <AccEnginePlus />
             </div>
 
-            {/* <Embed /> */}
+            <Embed />
           </div>
         </MainLayout>
       )}
