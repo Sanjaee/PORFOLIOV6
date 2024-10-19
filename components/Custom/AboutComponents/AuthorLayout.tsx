@@ -9,6 +9,12 @@ import { Testi } from "./Testi";
 import { AccTesti } from "./AccTesti";
 import Link from "next/link";
 import Embed from "../Main/Tiktok";
+import { TestiEnginePlus } from "./TestiEnginePlus";
+import { AccEnginePlus } from "./AccEnginePlus";
+import TestiEngine from "./TestiEngine";
+import { AccSlicing } from "./AccSlicing";
+import { TestiSlicing } from "./TestiSlicing";
+import { HiCode } from "react-icons/hi";
 
 export default function AuthorLayout({ children }: any) {
   const [open, setOpen] = useState(true);
@@ -152,7 +158,7 @@ export default function AuthorLayout({ children }: any) {
                 <div className="ml-4 flex flex-col">
                   <p className="text-lg font-bold">Full-stack Web Developer </p>
                   <p className="text-sm">Harisenin.com · Magang</p>
-                  <p className="text-sm">Jan 2024 - Jan 2024 · 1 bln</p>
+                  <p className="text-sm">Jan 2024 - Jan 2024 · 1 months</p>
                   <p className="text-sm">Jarak jauh</p>
                 </div>
               </div>
@@ -187,7 +193,7 @@ export default function AuthorLayout({ children }: any) {
                 <div className="ml-4 flex flex-col">
                   <p className="text-lg font-bold">Full-stack Web Developer </p>
                   <p className="text-sm">Nusantara Pedia · Freelance</p>
-                  <p className="text-sm">Jul 2024 - Aug 2024 · 2 bln</p>
+                  <p className="text-sm">Jul 2024 - Aug 2024 · 2 months</p>
                   <p className="text-sm">Jarak jauh</p>
                 </div>
               </div>
@@ -236,9 +242,123 @@ export default function AuthorLayout({ children }: any) {
               </div>
 
               <AccTesti />
+
+              <div className="mt-8 flex  items-start">
+              <HiCode className="w-10 h-10" />
+                <div className="ml-4 flex flex-col">
+                  <p className="text-lg font-bold">FrontEnd Web Developer </p>
+                  <p className="text-sm">Personal · Freelance</p>
+                  <p className="text-sm">Aug 2024 - Aug 2024 · 3 day</p>
+                  <p className="text-sm">Jarak jauh</p>
+                </div>
+              </div>
+              <div className="xl:ml-16 mt-6 flex flex-col">
+                <p className="text-sm">
+                  Responsible for slicing the desktop UI/UX designs from Figma
+                  into responsive web pages using React.js and Tailwind CSS.
+                  Focused on implementing pixel-perfect layouts specifically for
+                  desktop screens, ensuring cross-browser compatibility. Worked
+                  closely with designers to preserve the original design
+                  fidelity and develop reusable components tailored for desktop
+                  views.
+                </p>
+              </div>
+
+              <div className="xl:ml-16 mt-6 flex flex-col">
+                <p className="text-sm">Project Result :</p>
+                <Link
+                  target="_blank"
+                  className="underline text-blue-500 hover:text-blue-700"
+                  href="https://ui-ecru.vercel.app"
+                >
+                  https://ui-ecru.vercel.app
+                </Link>
+
+                <p className="text-sm mt-5 ">Design Figma :</p>
+                <Link
+                  target="_blank"
+                  className=" underline text-blue-500 hover:text-blue-700"
+                  href="https://www.figma.com/design/KeNb8OFi8LXRK1oNgziiY8/Jobpilot---Job-Portal-Figma-UI-Template-(Community)-(Community)?node-id=1647-26119&node-type=canvas&t=m8BYP0mm2tJdluP2-0"
+                >
+                  Click to Link Figma
+                </Link>
+              </div>
+              <p className="text-center mt-4">
+                Click on the image below to see more clearly
+              </p>
+              <div className=" my-20 flex w-full justify-center items-center">
+                <TestiSlicing />
+              </div>
+
+              <AccSlicing />
+
+              <div className="mt-8 flex  items-start">
+                <Image
+                  width={50}
+                  height={70}
+                  className="bg-white rounded-full p-1"
+                  src="/logo-engineplus.png"
+                  alt="harisenin"
+                />
+                <div className="ml-4 flex flex-col">
+                  <p className="text-lg font-bold">Full-stack Web Developer </p>
+                  <p className="text-sm">Engineplus Motorsports · Freelance</p>
+                  <p className="text-sm">Aug 2024 - Okt 2024 · 2 months</p>
+                  <p className="text-sm">Hybrid</p>
+                </div>
+              </div>
+              <div className="xl:ml-16 mt-6 flex flex-col">
+                <p className="text-sm">
+                  Contributed As a Full-stack Web Developer at Engineplus
+                  Motorsports, I was responsible for developing a financial data
+                  and invoice system for dealerships, using CodeIgniter 3,
+                  jQuery, and Bootstrap. The project involved designing and
+                  implementing an efficient financial workflow with features
+                  such as transaction tracking, automated invoice management,
+                  and detailed financial reporting. I also ensured that the user
+                  interface was intuitive, making it easier for dealerships to
+                  manage their financial data quickly and accurately.
+                </p>
+              </div>
+
+              <div className="xl:ml-16 mt-6 flex flex-col">
+                <p className="text-sm">Project Result :</p>
+                <Link
+                  target="_blank"
+                  className="underline text-blue-500 hover:text-blue-700"
+                  href="https://github.com/Sanjaee/ENGINEPLUS-MOTORSPORT.git"
+                >
+                  https://github.com/Sanjaee/ENGINEPLUS-MOTORSPORT.git
+                </Link>
+                <div className="flex items-center mt-3">
+                  <p className="text-sm font-bold animate-blink">
+                    Strictly Prohibited: Duplicating or Selling Code — Offenders
+                    Will Face Serious Consequences
+                  </p>
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      fill="#f50505"
+                      d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <p className="text-center mt-4">
+                Click on the image below to see more clearly
+              </p>
+              <div className=" my-20 flex w-full justify-center items-center">
+                <TestiEngine />
+              </div>
+
+              <AccEnginePlus />
             </div>
 
-            <Embed />
+            {/* <Embed /> */}
           </div>
         </MainLayout>
       )}
