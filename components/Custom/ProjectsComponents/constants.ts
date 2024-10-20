@@ -2,6 +2,13 @@ import { Project } from "./types";
 
 export const projects: Project[] = [
   {
+    title: "Zacode Artikel",
+    src: "10.png",
+    color: "#ddd6fe",
+    url: "https://zacode.vercel.app",
+    role: "Fullstack Developer",
+  },
+  {
     title: "Tokopedia Clone",
     src: "1.png",
     color: "#dbeafe",
