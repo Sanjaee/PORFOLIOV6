@@ -110,3 +110,47 @@ html {
     --ring: 240 4.9% 83.9%;
   }
 }
+
+/* Custom Scrollbar untuk Chat - Kecil dan Bagus */
+.chat-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(75, 85, 99, 0.5) white;
+  scrollbar-gutter: stable;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 10px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(75, 85, 99, 0.4);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.6);
+  background-clip: padding-box;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(107, 114, 128, 0.8);
+  background-clip: padding-box;
+}
+
+/* Dark mode - tetap putih */
+.dark .chat-scrollbar {
+  scrollbar-color: rgba(75, 85, 99, 0.5) white;
+}
+
+.dark .chat-scrollbar::-webkit-scrollbar-track {
+  background: white;
+}

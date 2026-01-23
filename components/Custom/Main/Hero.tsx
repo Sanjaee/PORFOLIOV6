@@ -1,18 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactElement, useContext, useEffect, useRef, useState } from "react";
+import { ReactElement, useContext, useEffect, useRef } from "react";
 import { HiOutlineArrowNarrowDown } from "react-icons/hi";
 import { ScrollContext } from "../../Custom/ScrollProvider";
 import { renderCanvas } from "../../Custom/renderCanvas";
 import { BiSolidDownload } from "react-icons/bi";
 import MainLayout from "../MontionLayout";
-import PasswordModal from "./PasswordModal"; // Import the PasswordModal component
 
 export default function Hero(): ReactElement {
   const ref = useRef<HTMLHeadingElement>(null);
   const { scrollY } = useContext(ScrollContext);
-  const [isModalOpen, setModalOpen] = useState(false);
 
   let progress = 0;
   const { current: elContainer } = ref;
@@ -24,20 +22,6 @@ export default function Hero(): ReactElement {
   useEffect(() => {
     renderCanvas();
   }, []);
-
-  const handleDownloadClick = () => {
-    setModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setModalOpen(false);
-  };
-
-  const handleModalSubmit = () => {
-    setModalOpen(false);
-    window.location.href =
-      "https://drive.google.com/file/d/15lQ_DxXTIhiOpLzYtTcfFwnAyKg1qrwx/view?usp=drivesdk";
-  };
 
   return (
     <div id="home">
@@ -53,13 +37,15 @@ export default function Hero(): ReactElement {
                   I build things for Frontend and Backend.
                 </h2>
 
-                <button
-                  onClick={handleDownloadClick}
+                <a
+                  href="https://drive.google.com/file/d/10j8MuP1dBTo0nJGhY_F0WfBvtfED7ipu/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex mt-10 items-center border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2 "
                 >
                   <p className="ml-3"> Download CV</p>
                   <BiSolidDownload size={30} className="download-icon" />
-                </button>
+                </a>
               </div>
               <motion.div
                 animate={{
@@ -86,12 +72,6 @@ export default function Hero(): ReactElement {
         className="bg-skin-base pointer-events-none absolute inset-0"
         id="canvas"
       ></canvas>
-      {isModalOpen && (
-        <PasswordModal
-          onClose={handleModalClose}
-          onSubmit={handleModalSubmit}
-        />
-      )}
     </div>
   );
 }

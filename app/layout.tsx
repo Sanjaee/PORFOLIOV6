@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Custom/Navbar";
 import ChatAiButton from "@/components/Custom/Main/AI";
 import Footer from "@/components/Custom/Main/Footer";
+import { Chatbot } from "@/components/ui/Chatbot";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Navbar />
           {children}
-          <ChatAiButton />
+          <Chatbot />
           <Footer />
         </ThemeProvider>
       </body>
