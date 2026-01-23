@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { request } from "undici";
+import { rateLimit, getRateLimitHeaders } from "../../utils/rateLimit";
 
 const KOLOSAL_API_BASE = "https://api.kolosal.ai";
+
+// Rate limit: 100 requests per day per IP
+const MAX_REQUESTS = 100;
+const WINDOW_MS = 86400000; // 24 hours (1 day)
 
 function getKolosalApiKey(): string {
   const apiKey = process.env.KOLOSAL_API_KEY;
@@ -40,6 +45,12 @@ function validateFileType(base64: string): boolean {
 }
 
 export async function GET(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -56,16 +67,24 @@ export async function GET(req: NextRequest) {
   const action = searchParams.get("action");
 
   try {
+    let response: NextResponse;
     if (action === "cache") {
-      return handleCache(apiKey);
+      response = await handleCache(apiKey);
+    } else if (action === "health") {
+      response = await handleHealth(apiKey);
+    } else if (action === "stats") {
+      response = await handleStats(apiKey);
+    } else {
+      response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
-    if (action === "health") {
-      return handleHealth(apiKey);
-    }
-    if (action === "stats") {
-      return handleStats(apiKey);
-    }
-    return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {
@@ -78,6 +97,12 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -94,10 +119,20 @@ export async function POST(req: NextRequest) {
   const action = searchParams.get("action");
 
   try {
+    let response: NextResponse;
     if (action === "segment") {
-      return handleSegmentBase64(req, apiKey);
+      response = await handleSegmentBase64(req, apiKey);
+    } else {
+      response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
-    return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {
@@ -110,6 +145,12 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -126,10 +167,20 @@ export async function DELETE(req: NextRequest) {
   const action = searchParams.get("action");
 
   try {
+    let response: NextResponse;
     if (action === "cache-delete") {
-      return handleCacheDelete(apiKey);
+      response = await handleCacheDelete(apiKey);
+    } else {
+      response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
-    return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {

@@ -33,7 +33,14 @@ export async function fetchModels(): Promise<any> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ messages, model }),
     });
-    if (!res.ok) throw new Error("Failed to send message");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      const errorMessage = errorData.message || errorData.error || "Failed to send message";
+      const error = new Error(errorMessage);
+      (error as any).status = res.status;
+      (error as any).data = errorData;
+      throw error;
+    }
     return res.json();
   }
   
@@ -49,7 +56,14 @@ export async function fetchModels(): Promise<any> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ input, model, workspace_id: workspaceId, tools, history }),
     });
-    if (!res.ok) throw new Error("Failed to send agent message");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      const errorMessage = errorData.message || errorData.error || "Failed to send agent message";
+      const error = new Error(errorMessage);
+      (error as any).status = res.status;
+      (error as any).data = errorData;
+      throw error;
+    }
     return res.json();
   }
   
@@ -69,7 +83,14 @@ export async function fetchModels(): Promise<any> {
         threshold,
       }),
     });
-    if (!res.ok) throw new Error("Failed to detect objects");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      const errorMessage = errorData.message || errorData.error || "Failed to detect objects";
+      const error = new Error(errorMessage);
+      (error as any).status = res.status;
+      (error as any).data = errorData;
+      throw error;
+    }
     return res.json();
   }
   
@@ -84,7 +105,14 @@ export async function fetchModels(): Promise<any> {
         invoice: false,
       }),
     });
-    if (!res.ok) throw new Error("Failed to extract text");
+    if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      const errorMessage = errorData.message || errorData.error || "Failed to extract text";
+      const error = new Error(errorMessage);
+      (error as any).status = res.status;
+      (error as any).data = errorData;
+      throw error;
+    }
     return res.json();
   }
   

@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { request } from "undici";
+import { rateLimit, getRateLimitHeaders } from "../../utils/rateLimit";
 
 const KOLOSAL_API_BASE = "https://api.kolosal.ai/v1/workspaces";
+
+// Rate limit: 100 requests per day per IP
+const MAX_REQUESTS = 100;
+const WINDOW_MS = 86400000; // 24 hours (1 day)
 
 function getKolosalApiKey(): string {
   const apiKey = process.env.KOLOSAL_API_KEY;
@@ -24,6 +29,12 @@ async function safeJsonParse(body: { text: () => Promise<string> }) {
 }
 
 export async function GET(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -43,42 +54,63 @@ export async function GET(req: NextRequest) {
   const feature_id = searchParams.get("feature_id");
 
   try {
+    let response: NextResponse;
     switch (action) {
       // Workspace actions
       case "list":
-        return handleList(apiKey);
+        response = await handleList(apiKey);
+        break;
       case "get":
-        return handleGet(workspace_id as string, apiKey);
+        response = await handleGet(workspace_id as string, apiKey);
+        break;
       case "stats":
-        return handleStats(apiKey);
+        response = await handleStats(apiKey);
+        break;
       case "status":
-        return handleStatus(workspace_id as string, apiKey);
+        response = await handleStatus(workspace_id as string, apiKey);
+        break;
       
       // Order actions
       case "order":
-        return handleOrder(apiKey);
+        response = await handleOrder(apiKey);
+        break;
       case "order-stats":
-        return handleOrderStats(apiKey);
+        response = await handleOrderStats(apiKey);
+        break;
       
       // Category actions
       case "categories":
-        return handleCategories(workspace_id as string, apiKey);
+        response = await handleCategories(workspace_id as string, apiKey);
+        break;
       case "category-get":
-        return handleCategoryGet(workspace_id as string, category_id as string, apiKey);
+        response = await handleCategoryGet(workspace_id as string, category_id as string, apiKey);
+        break;
       case "category-order":
-        return handleCategoryOrder(workspace_id as string, apiKey);
+        response = await handleCategoryOrder(workspace_id as string, apiKey);
+        break;
       
       // Feature actions
       case "features":
-        return handleFeatures(workspace_id as string, category_id as string, apiKey);
+        response = await handleFeatures(workspace_id as string, category_id as string, apiKey);
+        break;
       case "feature-get":
-        return handleFeatureGet(workspace_id as string, category_id as string, feature_id as string, apiKey);
+        response = await handleFeatureGet(workspace_id as string, category_id as string, feature_id as string, apiKey);
+        break;
       case "feature-order":
-        return handleFeatureOrder(workspace_id as string, category_id as string, apiKey);
+        response = await handleFeatureOrder(workspace_id as string, category_id as string, apiKey);
+        break;
       
       default:
-        return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+        response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {
@@ -91,6 +123,12 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -109,16 +147,28 @@ export async function POST(req: NextRequest) {
   const category_id = searchParams.get("category_id");
 
   try {
+    let response: NextResponse;
     switch (action) {
       case "create":
-        return handleCreate(req, apiKey);
+        response = await handleCreate(req, apiKey);
+        break;
       case "category-create":
-        return handleCategoryCreate(req, workspace_id as string, apiKey);
+        response = await handleCategoryCreate(req, workspace_id as string, apiKey);
+        break;
       case "feature-create":
-        return handleFeatureCreate(req, workspace_id as string, category_id as string, apiKey);
+        response = await handleFeatureCreate(req, workspace_id as string, category_id as string, apiKey);
+        break;
       default:
-        return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+        response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {
@@ -131,6 +181,12 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -150,16 +206,28 @@ export async function PATCH(req: NextRequest) {
   const feature_id = searchParams.get("feature_id");
 
   try {
+    let response: NextResponse;
     switch (action) {
       case "update":
-        return handleUpdate(req, workspace_id as string, apiKey);
+        response = await handleUpdate(req, workspace_id as string, apiKey);
+        break;
       case "category-update":
-        return handleCategoryUpdate(req, workspace_id as string, category_id as string, apiKey);
+        response = await handleCategoryUpdate(req, workspace_id as string, category_id as string, apiKey);
+        break;
       case "feature-update":
-        return handleFeatureUpdate(req, workspace_id as string, category_id as string, feature_id as string, apiKey);
+        response = await handleFeatureUpdate(req, workspace_id as string, category_id as string, feature_id as string, apiKey);
+        break;
       default:
-        return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+        response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {
@@ -172,6 +240,12 @@ export async function PATCH(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -190,16 +264,28 @@ export async function PUT(req: NextRequest) {
   const category_id = searchParams.get("category_id");
 
   try {
+    let response: NextResponse;
     switch (action) {
       case "order-update":
-        return handleOrderUpdate(req, apiKey);
+        response = await handleOrderUpdate(req, apiKey);
+        break;
       case "category-order-update":
-        return handleCategoryOrderUpdate(req, workspace_id as string, apiKey);
+        response = await handleCategoryOrderUpdate(req, workspace_id as string, apiKey);
+        break;
       case "feature-order-update":
-        return handleFeatureOrderUpdate(req, workspace_id as string, category_id as string, apiKey);
+        response = await handleFeatureOrderUpdate(req, workspace_id as string, category_id as string, apiKey);
+        break;
       default:
-        return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+        response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {
@@ -212,6 +298,12 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  // Check rate limit
+  const rateLimitResponse = rateLimit(req, MAX_REQUESTS, WINDOW_MS);
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let apiKey: string;
   try {
     apiKey = getKolosalApiKey();
@@ -231,16 +323,28 @@ export async function DELETE(req: NextRequest) {
   const feature_id = searchParams.get("feature_id");
 
   try {
+    let response: NextResponse;
     switch (action) {
       case "delete":
-        return handleDelete(workspace_id as string, apiKey);
+        response = await handleDelete(workspace_id as string, apiKey);
+        break;
       case "category-delete":
-        return handleCategoryDelete(workspace_id as string, category_id as string, apiKey);
+        response = await handleCategoryDelete(workspace_id as string, category_id as string, apiKey);
+        break;
       case "feature-delete":
-        return handleFeatureDelete(workspace_id as string, category_id as string, feature_id as string, apiKey);
+        response = await handleFeatureDelete(workspace_id as string, category_id as string, feature_id as string, apiKey);
+        break;
       default:
-        return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+        response = NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
+
+    // Add rate limit headers
+    const headers = getRateLimitHeaders(req, MAX_REQUESTS, WINDOW_MS);
+    Object.entries(headers).forEach(([key, value]) => {
+      response.headers.set(key, value);
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       {

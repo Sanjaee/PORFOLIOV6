@@ -143,7 +143,14 @@ export function Chatbot() {
       await display(fullContent, messageIndex);
     } catch (error) {
       console.error("Chat error:", error);
-      const errorContent = "Sorry, there was an error. Please try again.";
+      // Extract error message from error object
+      let errorContent = "Maaf, terjadi kesalahan. Silakan coba lagi.";
+      if (error instanceof Error) {
+        errorContent = error.message || errorContent;
+      } else if (typeof error === "object" && error !== null && "message" in error) {
+        errorContent = String((error as any).message) || errorContent;
+      }
+      
       const errorMessage: Message = {
         role: "assistant",
         content: "",

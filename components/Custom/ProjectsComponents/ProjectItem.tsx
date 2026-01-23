@@ -31,7 +31,7 @@ export default function ProjectItem({
       <h2 className="text-2xl transition-all group-hover:-translate-x-3 group-hover:scale-110 sm:text-6xl">
         {title}
       </h2>
-      <p className="text-sm font-light transition-all group-hover:translate-x-3 group-hover:scale-110 sm:text-lg">
+      <p className="text-sm font-light transition-all group-hover:translate-x-3 group-hover:scale-110 sm:text-lg whitespace-nowrap">
         {role}
       </p>
     </a>
