@@ -15,12 +15,12 @@ const Skills = () => {
         <h1 className="text-3xl font-extrabold  text-gray-900 dark:text-gray-100 sm:text-4xl  md:text-5xl ">
           Skills
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2  gap-9 mt-10 w-full ">
+        <div className="columns-1 sm:columns-2 gap-9 mt-10 w-full">
           {skillsData.map((skill) => (
             <div
               key={skill.id}
               onClick={() => setSelectedSkill(skill)}
-              className="w-full cursor-pointer hover:scale-105 transition-transform duration-200 rounded-xl shadow-md dark:bg-neutral-800 overflow-hidden"
+              className="break-inside-avoid mb-9 cursor-pointer hover:scale-105 transition-transform duration-200 rounded-xl shadow-md dark:bg-neutral-800 overflow-hidden"
             >
               <Image
                 width={1000}
