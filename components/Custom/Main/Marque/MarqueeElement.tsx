@@ -15,7 +15,7 @@ export default function MarqueeElement({
   return (
     <Marquee
       direction={direction}
-      speed={25}
+      speed={50}
       className={withPadding ? "py-3" : ""}
     >
       {children}

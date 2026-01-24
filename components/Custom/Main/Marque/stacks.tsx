@@ -1,18 +1,31 @@
 import { BiLogoPostgresql } from "react-icons/bi";
 import { BsFillBootstrapFill } from "react-icons/bs";
 import {
+  FaDocker,
+  FaPython,
+  FaCloudflare,
+  FaBitcoin,
+} from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import {
   SiCss3,
   SiExpo,
   SiExpress,
   SiFirebase,
   SiFramer,
+  SiFlutter,
   SiGithub,
+  SiGo,
   SiHtml5,
   SiJavascript,
-  SiJson,
+  SiKotlin,
+  SiAndroidstudio,
+  SiJsonwebtokens,
+  SiKubernetes,
   SiNextdotjs,
   SiNodedotjs,
   SiPrisma,
+  SiRabbitmq,
   SiReact,
   SiRedux,
   SiSass,
@@ -21,6 +34,7 @@ import {
   SiTypescript,
   SiVite,
 } from "react-icons/si";
+import { VscJson } from "react-icons/vsc";
 
 type stacksProps = {
   [key: string]: JSX.Element;
@@ -52,5 +66,17 @@ export const STACKS: stacksProps = {
   "Node JS": <SiNodedotjs size={iconSize} className="text-green-600" />,
   Github: <SiGithub size={iconSize} />,
   Storybook: <SiStorybook size={iconSize} className="text-pink-500" />,
-  Json: <SiJson className="text-neutral-700" />,
+  Json: <VscJson size={iconSize} className="text-neutral-700" />,
+  RabbitMQ: <SiRabbitmq size={iconSize} className="text-orange-500" />,
+  Docker: <FaDocker size={iconSize} className="text-blue-500" />,
+  Kotlin: <SiKotlin size={iconSize} className="text-purple-600" />,
+  Golang: <SiGo size={iconSize} className="text-cyan-500" />,
+  Flutter: <SiFlutter size={iconSize} className="text-blue-400" />,
+  "Android Studio": <SiAndroidstudio size={iconSize} className="text-green-600" />,
+  "JWT": <SiJsonwebtokens size={iconSize} className="text-pink-500" />,
+  Kubernetes: <SiKubernetes size={iconSize} className="text-blue-600" />,
+  Python: <FaPython size={iconSize} className="text-yellow-500" />,
+  Cloudflare: <FaCloudflare size={iconSize} className="text-orange-500" />,
+  Blockchain: <FaBitcoin size={iconSize} className="text-orange-500" />,
+  Grpc: <FcGoogle size={iconSize} />,
 };
