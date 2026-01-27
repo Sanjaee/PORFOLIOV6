@@ -38,9 +38,9 @@ export const projects: Project[] = [
   },
   {
     title: "Gojek Clone – Microservices Mobile App",
-    src: "1.png",
+    src: "gojek.png",
     color: "#dbeafe",
-    url: "https://github.com/Sanjaee/Mobile-Helper.git",
+    url: "https://youtu.be/Nd6OhA59684",
     role: "Fullstack Developer",
   },
   {

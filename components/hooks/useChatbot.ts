@@ -10,7 +10,7 @@ export function useChatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Halo! Saya AI Agent dari Zacode, platform penyedia template coding terpercaya. Saya dapat membantu Anda dengan:\n\n💻 **Template Coding**: Template coding dari Zacode untuk berbagai framework dan teknologi (React, Next.js, Vue, Node.js, dll)\n📊 **Pantau Investasi**: Di web ini Anda dapat memantau investasi seperti saham dan crypto\n💹 **Informasi Saham**: Analisis fundamental, teknikal, rekomendasi saham, dan market insights\n🪙 **Informasi Crypto**: Analisis cryptocurrency, blockchain, DeFi, dan trading strategies\n📈 **Edukasi Investasi**: Panduan investasi untuk pemula hingga advanced, risk management, dan portfolio optimization\n\n**Menggunakan Template Zacode**: Template coding dari Zacode dapat membantu Anda membangun aplikasi web untuk memantau investasi, menganalisis data saham/crypto, dan membuat dashboard portfolio.\n\nPilih mode dan model untuk memulai!",
+      content: "**AI Agent**\n\nHalo! Saya AI Agent dari Zacode, platform penyedia template coding terpercaya.\n\n**Pilihan Mode** (di atas):\n- **Chat**: Percakapan dengan AI\n- **OCR**: Ekstrak teks dari gambar\n- **Object Detection**: Deteksi objek dalam gambar\n\n**Pilihan Model AI** (di atas): Pilih model sesuai kebutuhan Anda.\n\n**Layanan**: Template coding, informasi saham & crypto, edukasi investasi, dan monitoring portfolio.\n\nPilih mode dan model untuk memulai!",
     },
   ]);
   const [input, setInput] = useState("");
