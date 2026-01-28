@@ -42,6 +42,9 @@ const Navbar = () => {
           <li className="hover:text-red-500">
             <Link href="/skills" aria-label="Skills">Skills</Link>
           </li>
+          <li className="hover:text-red-500">
+            <Link href="/saham" aria-label="Saham">Saham</Link>
+          </li>
         </ul>
         <ModeToggle />
       </div>
@@ -80,6 +83,11 @@ const Navbar = () => {
             <li className="hover:text-red-500">
               <Link href="/skills" onClick={toggleMobileMenu} aria-label="Skills">
                 Skills
+              </Link>
+            </li>
+            <li className="hover:text-red-500">
+              <Link href="/saham" onClick={toggleMobileMenu} aria-label="Saham">
+                Saham
               </Link>
             </li>
           </ul>
