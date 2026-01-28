@@ -45,6 +45,9 @@ const Navbar = () => {
           <li className="hover:text-red-500">
             <Link href="/saham" aria-label="Saham">Saham</Link>
           </li>
+          <li className="hover:text-red-500">
+            <Link href="/crypto" aria-label="Crypto">Crypto</Link>
+          </li>
         </ul>
         <ModeToggle />
       </div>
@@ -88,6 +91,11 @@ const Navbar = () => {
             <li className="hover:text-red-500">
               <Link href="/saham" onClick={toggleMobileMenu} aria-label="Saham">
                 Saham
+              </Link>
+            </li>
+            <li className="hover:text-red-500">
+              <Link href="/crypto" onClick={toggleMobileMenu} aria-label="Crypto">
+                Crypto
               </Link>
             </li>
           </ul>
