@@ -29,7 +29,7 @@ export default function AuthorLayout({ children }: any) {
                   alt="Ahmad Afriza"
                   height={130}
                   width={130}
-                  src="/profile.png"
+                  src="/avatar.jpg"
                   className="rounded-full object-scale-down "
                 />
               </div>
