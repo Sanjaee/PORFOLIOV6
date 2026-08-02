@@ -30,7 +30,7 @@ export default function AuthorLayout({ children }: any) {
                   height={130}
                   width={130}
                   src="/avatar.jpg"
-                  className="rounded-full object-scale-down "
+                  className="rounded-full object-cover"
                 />
               </div>
             </div>
