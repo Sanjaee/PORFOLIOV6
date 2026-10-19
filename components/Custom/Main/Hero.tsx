@@ -38,7 +38,7 @@ export default function Hero(): ReactElement {
                 </h2>
 
                 <a
-                  href="https://drive.google.com/file/d/10j8MuP1dBTo0nJGhY_F0WfBvtfED7ipu/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1J9AXiUtuHOba1RhbxgjSHLLiBg6q4s5y/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex mt-10 items-center border border-gray-600 rounded-md w-40 hover:text-red-500 px-2 py-2 "

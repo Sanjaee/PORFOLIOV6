@@ -2,6 +2,7 @@
 import Image from "../../ui/Image";
 import { Teckstack } from "./AccrodionTeckstack";
 import { CertiDrawer } from "./CertiDrawer";
+import { WahanaDrawer } from "./WahanaDrawer";
 import MainLayout from "../MainLayout";
 import { Testi } from "./Testi";
 import { AccTesti } from "./AccTesti";
@@ -24,13 +25,14 @@ export default function AuthorLayout({ children }: any) {
                   Frontend Engineer
                 </h2>
               </div>
-              <div>
+              <div className="w-[130px] h-[130px] rounded-full overflow-hidden shrink-0 aspect-square">
                 <Image
                   alt="Ahmad Afriza"
                   height={130}
                   width={130}
-                  src="/profile.png"
-                  className="rounded-full object-cover"
+                  src="/avatar.jpg"
+                  rounded="rounded-full"
+                  className="w-[130px] h-[130px] rounded-full object-cover aspect-square"
                 />
               </div>
             </div>
@@ -38,15 +40,17 @@ export default function AuthorLayout({ children }: any) {
             <div className="prose max-w-none pb-8 text-justify text-sm dark:prose-dark md:text-lg xl:col-span-2">
               <p className="mt-4 text-sm">
                 My name is Ahmad Afriza, a Software Developer specializing in
-                Full-stack Development. I have 3 months of experience as a
-                freelance web developer, along with 1 year of building personal
-                projects. My tech stack includes Next.js for frontend and
-                full-stack development, Golang for backend services, Kotlin for
-                mobile and backend development, Docker for containerization, and
-                RabbitMQ for message queuing. I am passionate about creating
-                scalable and efficient applications while ensuring smooth
-                integration between frontend and backend systems. I excel at
-                building modern web applications with microservices architecture.
+                Full-stack Development with over 2 years of professional
+                experience engineering enterprise B2B CRM systems, web applications,
+                and scalable digital solutions. My core expertise spans .NET 9,
+                Next.js, React, Golang, and modern database architectures. I have
+                proven experience building end-to-end mission-critical features,
+                such as automated ticketing workflows, digital MOU signing systems,
+                credit-limit-based purchasing and deposit management, as well as
+                seamless third-party integrations. Passionate about system performance,
+                clean architecture, and user-centric design, I excel at bridging
+                complex backend business logic with intuitive, high-performance
+                frontend interfaces.
               </p>
 
               <h1 className="mt-4 text-2xl font-bold">Education</h1>
@@ -57,7 +61,37 @@ export default function AuthorLayout({ children }: any) {
               </div>
 
               <h1 className="mt-4 text-2xl font-bold">Experience</h1>
-              <div className="mt-4 flex  items-start">
+              <div className="mt-4 flex items-start">
+                <Image
+                  width={50}
+                  height={50}
+                  src="/wahana.ico"
+                  alt="Wahana Travel"
+                  className="rounded object-contain"
+                  unoptimized
+                />
+                <div className="ml-4 flex flex-col">
+                  <p className="text-lg font-bold">Full-stack Developer</p>
+                  <p className="text-sm">Wahana Travel</p>
+                  <p className="text-sm">November 2024 – October 2026 · 2 years</p>
+                  <p className="text-sm">Jakarta, ID</p>
+                </div>
+              </div>
+              <div className="xl:ml-16 mt-6 flex flex-col">
+                <p className="text-sm">
+                  Over 2 years of experience developing B2B CRM systems using .NET 9 and DevExpress. Built customer ticketing
+                  workflows, digital MOU signing with email delivery, and deposit and purchasing features based on customer credit
+                  limits. Developed end-to-end solutions to improve operational efficiency and user experience.
+                </p>
+              </div>
+              <p className="text-center mt-6 !mb-2">
+                Click on the image below to see more clearly
+              </p>
+              <div className="mt-4 mb-16 flex w-full justify-center items-center">
+                <WahanaDrawer />
+              </div>
+
+              <div className="mt-8 flex  items-start">
                 <Image
                   width={50}
                   height={50}

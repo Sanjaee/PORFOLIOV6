@@ -177,17 +177,7 @@ export function Chatbot() {
 
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50 group">
-        <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-0 blur-lg group-hover:opacity-30 transition-opacity" />
-        <Button
-          onClick={() => setOpen(true)}
-          className="relative h-14 w-14 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all border-0"
-          size="icon"
-        >
-          <MessageCircle className="h-6 w-6 text-white" />
-          <span className="sr-only">Open chat</span>
-        </Button>
-      </div>
+
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="flex flex-col h-[700px] max-w-lg p-0 bg-white dark:bg-white">
